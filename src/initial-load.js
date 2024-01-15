@@ -1,26 +1,16 @@
 import createDOMElement from "C:/Users/Aitor/Google Drive/Kode/projects/reusables/JavaScript/DOMElementCreator.js";
 import "./style.css";
-const images = require.context(
-  "../media",
-  false,
-  /\.(jpeg|jpg|png|gif)$/
-);
-
-// media folder "bundler"
-const importAllImages = (context) => {
-  let images = {};
-  context.keys().forEach((item) => {
-    images[item.replace("./", "")] = context(item);
-  });
-  return images;
-};
-
-const allImages = importAllImages(images);
-
-
+import allImages from "./image_bundler";
 
 
 function createInitialUI() {
+  const falink = createDOMElement(
+    "link",
+    {
+      rel: "stylesheet",
+      href: "https://use.fontawesome.com/releases/v5.15.4/css/all.css",
+    }
+  );
   const restaurantTitle = createDOMElement(
     "h1",
     {
@@ -54,7 +44,19 @@ function createInitialUI() {
     { class: "nav_tabs", id: "contact_tab" },
     "Contacte"
   );
-  const mainDiv = createDOMElement("div", { class: "main", id: "main_div" });
+  const mainDiv = createDOMElement("div", { id: "main_div" });
+  const mainContainer = createDOMElement("div", { id: "main_container"});
+  const testP = createDOMElement(
+    "p",
+    { class: "", id: "test_p" },
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori\ns nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est loluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est loluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est loluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animoluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est loluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est loluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est l id est loluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperia\n m, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.\n  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+  );
+  const footer = createDOMElement("footer", { id: "footer"}, "by tostimontes");
+  const githubLink = createDOMElement(
+    "a",
+    { href: "https://github.com/tostimontes/restaurant-page" }
+  );
+  const githubIcon = createDOMElement("i", {class: "fab fa-github"});
 
   //   const porkFeet = createDOMElement("img", {src: `${allImages['raw-pork-feet.jpg']}`, id: "test_img"}, "");
   // porkFeet.innerHTML = `<a href="https://www.freepik.com/free-photo/raw-pork-legs-white-background_1206301.htm#query=pies%20de%20cerdo&position=4&from_view=search&track=ais&uuid=2d87da32-4828-4f3e-832b-0d95079e06b8">Image by whatwolf</a> on Freepik`;
@@ -63,9 +65,14 @@ function createInitialUI() {
 
   navbar.append(homeTab, menuTab, contactTab);
   header.append(restaurantTitle, navbar);
+  // mainContainer.append(testP);
+  githubLink.append(githubIcon);
+  footer.append(githubLink)
 
   const body = document.querySelector("body");
-  body.append(header, mainDiv);
+  const head = document.querySelector("head");
+  head.append(falink);
+  body.append(header, mainDiv, mainContainer, footer);
 }
 
-export { createInitialUI, allImages };
+export { createInitialUI };
