@@ -65,7 +65,6 @@ function createInitialUI() {
 
   navbar.append(homeTab, menuTab, contactTab);
   header.append(heroTitle, navbar);
-  // mainContainer.append(testP);
   mainDiv.append(mainContainer, footer)
   githubLink.append(githubIcon);
   footer.append(nameSpan, githubLink)
