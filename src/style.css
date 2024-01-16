@@ -100,13 +100,39 @@ body {
     -1px -1px 0px rgb(94, 94, 94);
   letter-spacing: 1px;
   & div:hover {
-    text-decoration: underline;
     cursor: pointer;
     color: rgb(72, 95, 138);
-    transition: 0.25s ease-in-out;
-    transform: scale(1.05);
+    transition: 0.15s ease;
+    transform: scale(1.15);
   }
 }
+
+.nav_tabs {
+    position: relative;
+    display: inline-block;
+}
+
+.nav_tabs:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 6px;
+    left: 50%;
+    background-color: currentColor;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    transform: translateX(-50%);
+  }
+  
+  .nav_tabs:hover:after {
+    visibility: visible;
+    cursor: pointer;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 #main_div {
   width: 100%;

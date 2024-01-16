@@ -30,17 +30,17 @@ function createInitialUI() {
   const navbar = createDOMElement("div", { id: "navbar" });
   const homeTab = createDOMElement(
     "div",
-    { class: "nav_tabs", id: "home_tab" },
+    { class: "nav_tabs underline_animation", id: "home_tab" },
     "El Restaurant"
   );
   const menuTab = createDOMElement(
     "div",
-    { class: "nav_tabs", id: "menu_tab" },
+    { class: "nav_tabs underline_animation", id: "menu_tab" },
     "Els nostres plats"
   );
   const contactTab = createDOMElement(
     "div",
-    { class: "nav_tabs", id: "contact_tab" },
+    { class: "nav_tabs underline_animation", id: "contact_tab" },
     "Contacte"
   );
   const mainDiv = createDOMElement("div", { id: "main_div" });
