@@ -1,6 +1,17 @@
-import createDOMElement from "C:/Users/Aitor/Google Drive/Kode/projects/reusables/JavaScript/DOMElementCreator.js";
 import "./style.css";
 import allImages from "./image_bundler";
+
+function createDOMElement(type, attributes, text) {
+  const element = document.createElement(`${type}`);
+
+  for (const property in attributes) {
+    element.setAttribute(property, attributes[property]);
+  }
+
+  element.textContent = text;
+
+  return element;
+}
 
 
 function createInitialUI() {
@@ -61,4 +72,4 @@ function createInitialUI() {
   body.append(header, mainDiv);
 }
 
-export { createInitialUI };
+export { createInitialUI, createDOMElement };

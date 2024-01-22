@@ -1,4 +1,4 @@
-#restaurant-page
+# restaurant-page
 
 This is the Restaurant Page project as part of The Odin Project's Javascript curriculum.
 

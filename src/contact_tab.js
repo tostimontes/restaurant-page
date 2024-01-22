@@ -1,4 +1,4 @@
-import createDOMElement from "C:/Users/Aitor/Google Drive/Kode/projects/reusables/JavaScript/DOMElementCreator.js";
+import createDOMElement from "./initial-load.js";
 import allImages from "./image_bundler";
 
 
